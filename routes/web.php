@@ -11,10 +11,21 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', function () {
+    return view('home');
+})->middleware('auth');
+
+Route::group(['middleware' => 'auth'], function() {
+	Route::get('/home', 'HomeController@index');
+	Route::resource('vendor','VendorController');
+	Route::resource('customer','CustomerController');
+	Route::resource('product','ProductController');
+});

@@ -8,10 +8,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    <title><?php echo e(config('app.name', 'Laravel')); ?></title>
+    <title>Inventory Project</title>
 
     <!-- Styles -->
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('css/datatables.min.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('DataTables-1.10.18/css/dataTables.bootstrap.min.css')); ?>" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -29,8 +31,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
-                        <?php echo e(config('app.name', 'Laravel')); ?>
-
+                        Inventory Project
                     </a>
                 </div>
 
@@ -73,10 +74,45 @@
             </div>
         </nav>
 
-        <?php echo $__env->yieldContent('content'); ?>
+        <div class="container">
+            <div class="row">
+                <?php if(Auth::guest()): ?>
+                    <div class="col-md-8 col-md-offset-2">
+                        <?php echo $__env->yieldContent('content'); ?>
+                    </div>
+                <?php else: ?>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li>
+                                        <a href="<?php echo e(asset('/')); ?>">Home</a>
+                                        <a href="<?php echo e(asset('/vendor')); ?>">Vendor</a>
+                                        <a href="<?php echo e(asset('/customer')); ?>">Customer</a>
+                                        <a href="<?php echo e(asset('/product')); ?>">Product</a>
+                                        <a href="<?php echo e(asset('/transaction')); ?>">Transaction</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <?php echo $__env->yieldContent('content'); ?>
+                    </div>
+                <?php endif; ?>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
     <script src="<?php echo e(asset('js/app.js')); ?>"></script>
+    <script src="<?php echo e(asset('js/datatables.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('DataTables-1.10.18/js/dataTables.bootstrap.min.js')); ?>"></script>
+    <script>
+        $(document).ready(function() {
+            $('.table').DataTable();
+        } );
+    </script>
 </body>
 </html>

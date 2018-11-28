@@ -8,10 +8,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Inventory Project</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('DataTables-1.10.18/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -29,7 +31,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        Inventory Project
                     </a>
                 </div>
 
@@ -71,10 +73,45 @@
             </div>
         </nav>
 
-        @yield('content')
+        <div class="container">
+            <div class="row">
+                @if(Auth::guest())
+                    <div class="col-md-8 col-md-offset-2">
+                        @yield('content')
+                    </div>
+                @else
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li>
+                                        <a href="{{asset('/')}}">Home</a>
+                                        <a href="{{asset('/vendor')}}">Vendor</a>
+                                        <a href="{{asset('/customer')}}">Customer</a>
+                                        <a href="{{asset('/product')}}">Product</a>
+                                        <a href="{{asset('/transaction')}}">Transaction</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        @yield('content')
+                    </div>
+                @endif
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/datatables.min.js') }}"></script>
+    <script src="{{ asset('DataTables-1.10.18/js/dataTables.bootstrap.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.table').DataTable();
+        } );
+    </script>
 </body>
 </html>
