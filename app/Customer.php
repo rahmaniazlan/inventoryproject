@@ -11,4 +11,9 @@ class Customer extends Model
     protected $primaryKey = 'id_cust';
 
     public $timestamps = false;
+
+    public function scopeCustactive() {
+
+		return \DB::table('customer')->where(['status_cust'=>'y'])->get();
+	}
 }

@@ -11,4 +11,9 @@ class Vendor extends Model
     protected $primaryKey = 'id_vend';
 
     public $timestamps = false;
+
+    public function scopeVendactive() {
+
+		return \DB::table('vendor')->where(['status_vend'=>'y'])->get();
+	}
 }

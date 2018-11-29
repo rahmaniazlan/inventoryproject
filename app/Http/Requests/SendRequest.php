@@ -27,7 +27,7 @@ class SendRequest extends FormRequest
             //
             'code_vend' => 'required',
             'name_vend' => 'required',
-            'joindate_vend' => 'required'
+            'joindate_vend' => 'required',
             'code_cust' => 'required',
             'name_cust' => 'required',
             'joindate_cust' => 'required'

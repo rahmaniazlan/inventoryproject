@@ -85,13 +85,13 @@
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li>
-                                        <a href="<?php echo e(asset('/')); ?>">Home</a>
-                                        <a href="<?php echo e(asset('/vendor')); ?>">Vendor</a>
-                                        <a href="<?php echo e(asset('/customer')); ?>">Customer</a>
-                                        <a href="<?php echo e(asset('/product')); ?>">Product</a>
-                                        <a href="<?php echo e(asset('/transaction')); ?>">Transaction</a>
-                                    </li>
+                                    <li><a href="<?php echo e(asset('/')); ?>">Home</a></li>
+                                    <li><a href="<?php echo e(asset('/vendor')); ?>">Vendor</a></li>
+                                    <li><a href="<?php echo e(asset('/customer')); ?>">Customer</a></li>
+                                    <li><a href="<?php echo e(asset('/product')); ?>">Product</a></li>
+                                    <li><a href="<?php echo e(asset('/purchase')); ?>">Purchase Order</a></li>
+                                    <li><a href="<?php echo e(asset('/sales')); ?>">Sales Order</a></li>
+                                    <li><a href="<?php echo e(asset('/stock')); ?>">Stock</a></li>
                                 </ul>
                             </div>
                         </div>

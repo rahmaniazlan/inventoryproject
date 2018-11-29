@@ -84,13 +84,13 @@
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li>
-                                        <a href="{{asset('/')}}">Home</a>
-                                        <a href="{{asset('/vendor')}}">Vendor</a>
-                                        <a href="{{asset('/customer')}}">Customer</a>
-                                        <a href="{{asset('/product')}}">Product</a>
-                                        <a href="{{asset('/transaction')}}">Transaction</a>
-                                    </li>
+                                    <li><a href="{{asset('/')}}">Home</a></li>
+                                    <li><a href="{{asset('/vendor')}}">Vendor</a></li>
+                                    <li><a href="{{asset('/customer')}}">Customer</a></li>
+                                    <li><a href="{{asset('/product')}}">Product</a></li>
+                                    <li><a href="{{asset('/purchase')}}">Purchase Order</a></li>
+                                    <li><a href="{{asset('/sales')}}">Sales Order</a></li>
+                                    <li><a href="{{asset('/stock')}}">Stock</a></li>
                                 </ul>
                             </div>
                         </div>

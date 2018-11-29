@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests\SendRequest;
+use App\Http\Requests\CustomerRequest;
 
 use ajax;
 
@@ -24,7 +24,7 @@ class CustomerController extends Controller
 		return view('createcustomer');
 	}
 
-	public function store(SendRequest $request) {
+	public function store(CustomerRequest $request) {
 		//	
 		$data = new Customer();
 		$data->code_cust = $request->code_cust;
@@ -45,7 +45,7 @@ class CustomerController extends Controller
 		return view('editcustomer', compact('data'));
 	}
 
-	public function update(SendRequest $request, $id) {
+	public function update(CustomerRequest $request, $id) {
         // Simpan Edit Siswa
         $data = Customer::where('id_cust', $id)->first();
         $data->code_cust = $request->code_cust;

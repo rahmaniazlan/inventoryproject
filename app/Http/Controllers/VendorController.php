@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests\SendRequest;
+use App\Http\Requests\VendorRequest;
 
 use ajax;
 
@@ -24,7 +24,7 @@ class VendorController extends Controller
 		return view('createvendor');
 	}
 
-	public function store(SendRequest $request) {
+	public function store(VendorRequest $request) {
 		//	
 		$data = new Vendor();
 		$data->code_vend = $request->code_vend;
@@ -45,7 +45,7 @@ class VendorController extends Controller
 		return view('editvendor', compact('data'));
 	}
 
-	public function update(SendRequest $request, $id) {
+	public function update(VendorRequest $request, $id) {
         // Simpan Edit Siswa
         $data = Vendor::where('id_vend', $id)->first();
         $data->code_vend = $request->code_vend;
